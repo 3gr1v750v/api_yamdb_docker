@@ -126,6 +126,9 @@ _Для пересборки команда up выполняется с пар�
 
 ``` sudo docker-compose exec web python manage.py collectstatic --no-input ```
 
+- Запустить проект:
+``` http://localhost/admin/ ```
+
 - Вы также можете создать дамп (резервную копию) базы:
 
 ``` sudo docker-compose exec web python manage.py dumpdata > fixtures.json ```

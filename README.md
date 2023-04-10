@@ -1,4 +1,4 @@
-# Проект YaMDb
+# Проект YaMDb (Docker)
 
 ## Описание
 
@@ -24,8 +24,12 @@
 - Python 3.7
 - Django 3.2
 - Django Rest Framework 3.12.4
-- Simple JWT
+- Simple JWT 4.8
 - SQLite3
+- Docker-compose 3.8
+- PostgreSQL 13.0-alpine 
+- Nginx 1.21.3-alpine 
+- Gunicorn 20.0.4
 
 ### Управление пользователями через API
 
@@ -83,52 +87,53 @@ POST /api/v1/titles/{title_id}/reviews/{review_id}/comments/
 ```
 
 ## Как запустить проект:
+- Для развёртывания проекта необходимо скачать его в нужную вам директорию, например:
 
-1. Скопируйте репозиторий и перейдите в него в командной строке:
+``` git clone git@github.com:EugeniGrivtsov/infra_sp2.git ```
 
-```
-git clone https://github.com/EugeniGrivtsov/api_yamdb
-```
-
-```
-cd api_yamdb
-```
-
-2. Создайте и активируйте виртуальное окружение:
+- В директории infra создайте файл .env с переменными окружения для работы с базой данных:
 
 ```
-python -m venv env
+DJANGO_KEY='your Django secret key'
+DB_ENGINE=django.db.backends.postgresql # указываем, что работаем с postgresql
+DB_NAME=postgres # имя базы данных
+POSTGRES_USER=postgres # логин для подключения к базе данных
+POSTGRES_PASSWORD=postgres # пароль для подключения к БД (установите свой)
+DB_HOST=db # название сервиса (контейнера)
+DB_PORT=5432 # порт для подключения к БД
 ```
 
-```
-source env/bin/activate
-```
 
-3. Установите зависимости из файла requirements.txt:
+- Из папки ``` infra/ ``` разверните контейнеры в новой структуре:
 
-```
-python -m pip install --upgrade pip
-```
+- Для запуска необходимо выполнить из директории с проектом команду:
 
-```
-pip install -r requirements.txt
-```
+``` sudo docker-compose up -d ```
 
-4. Выполните миграции:
+_Для пересборки команда up выполняется с параметром --build_
 
-```
-python manage.py migrate --run-syncdb
-```
-5. Загрузите тестовые данные:
+``` sudo docker-compose up -d --build ```
 
-```
-python manage.py load_data_from_csv
-```
-6. Запуститe проект:
+- Теперь в контейнере web нужно выполнить миграции:
 
-```
-python manage.py runserver
-```
+``` sudo docker-compose exec web python manage.py migrate ```
+
+- Создать суперпользователя:
+
+``` sudo docker-compose exec web python manage.py createsuperuser ```
+
+- Собрать статику:
+
+``` sudo docker-compose exec web python manage.py collectstatic --no-input ```
+
+- Вы также можете создать дамп (резервную копию) базы:
+
+``` sudo docker-compose exec web python manage.py dumpdata > fixtures.json ```
+
+- или, разместив, например, файл fixtures.json в папке с Dockerfile, загрузить в базу данные из дампа:
+
+``` sudo docker-compose exec web python manage.py loaddata fixtures.json ```
+
 
 ## Авторы
 **Гривцов Евгений** - [https://github.com/EugeniGrivtsov](https://github.com/EugeniGrivtsov)

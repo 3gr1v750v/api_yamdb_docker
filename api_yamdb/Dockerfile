@@ -1,17 +1,11 @@
-# Use an official Python runtime as a parent image
-FROM python:3.9-slim
+FROM python:3.7-slim
 
-# Set the working directory to /app
 WORKDIR /app
 
-# Copy the requirements file into the container at /app
-COPY api_yamdb/requirements.txt /app
+COPY requirements.txt /app
 
-# Install any needed packages specified in requirements.txt
-RUN pip install --no-cache-dir -r /app/requirements.txt
+RUN pip3 install -r /app/requirements.txt --no-cache-dir
 
-# Copy the rest of the application code into the container at /app
-COPY api_yamdb/ /app
+COPY . .
 
-# Start the Django application using gunicorn
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "api_yamdb.wsgi:application"]
+CMD ["gunicorn", "--bind", "0:8000", "api_yamdb.wsgi:application"]

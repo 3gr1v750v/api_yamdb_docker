@@ -91,16 +91,10 @@ POST /api/v1/titles/{title_id}/reviews/{review_id}/comments/
 
 ``` git clone git@github.com:EugeniGrivtsov/infra_sp2.git ```
 
-- В директории infra создайте файл .env с переменными окружения для работы с базой данных:
+- В директории infra создайте файл .env, откройте его и настройте параметры переменных окружения по заданному шаблону:
 
 ```
-DJANGO_KEY='your Django secret key'
-DB_ENGINE=django.db.backends.postgresql # указываем, что работаем с postgresql
-DB_NAME=postgres # имя базы данных
-POSTGRES_USER=postgres # логин для подключения к базе данных
-POSTGRES_PASSWORD=postgres # пароль для подключения к БД (установите свой)
-DB_HOST=db # название сервиса (контейнера)
-DB_PORT=5432 # порт для подключения к БД
+cp .env.template .env
 ```
 
 

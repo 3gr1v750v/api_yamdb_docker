@@ -95,9 +95,7 @@ POST /api/v1/titles/{title_id}/reviews/{review_id}/comments/
 
 - В директории infra создайте файл .env, откройте его и настройте параметры переменных окружения по заданному шаблону:
 
-```
-cp .env.example .env
-```
+``` cp .env.example .env ```
 
 
 - Из папки ``` infra/ ``` разверните контейнеры в новой структуре:

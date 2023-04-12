@@ -102,34 +102,34 @@ cp .env.template .env
 
 - Для запуска необходимо выполнить из директории с проектом команду:
 
-``` sudo docker-compose up -d ```
+``` docker-compose up -d ```
 
 _Для пересборки команда up выполняется с параметром --build_
 
-``` sudo docker-compose up -d --build ```
+``` docker-compose up -d --build ```
 
 - Теперь в контейнере web нужно выполнить миграции:
 
-``` sudo docker-compose exec web python manage.py migrate ```
+``` docker-compose exec web python manage.py migrate ```
 
 - Создать суперпользователя:
 
-``` sudo docker-compose exec web python manage.py createsuperuser ```
+``` docker-compose exec web python manage.py createsuperuser ```
 
 - Собрать статику:
 
-``` sudo docker-compose exec web python manage.py collectstatic --no-input ```
+``` docker-compose exec web python manage.py collectstatic --no-input ```
 
 - Запустить проект:
 ``` http://localhost/admin/ ```
 
 - Вы также можете создать дамп (резервную копию) базы:
 
-``` sudo docker-compose exec web python manage.py dumpdata > fixtures.json ```
+``` docker-compose exec web python manage.py dumpdata > fixtures.json ```
 
 - или, разместив, например, файл fixtures.json в папке с Dockerfile, загрузить в базу данные из дампа:
 
-``` sudo docker-compose exec web python manage.py loaddata fixtures.json ```
+``` docker-compose exec web python manage.py loaddata fixtures.json ```
 
 
 ## Авторы

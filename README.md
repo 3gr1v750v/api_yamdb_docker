@@ -93,7 +93,7 @@ POST /api/v1/titles/{title_id}/reviews/{review_id}/comments/
 ### Запуск проекта:
 - Для развёртывания проекта необходимо скачать его в нужную вам директорию, например:
 
-``` git clone git@github.com:EugeniGrivtsov/infra_sp2.git ```
+``` git clone git@github.com:EugeniGrivtsov/api_yamdb_docker.git ```
 
 - В директории infra создайте файл .env, откройте его и настройте параметры переменных окружения по заданному шаблону:
 

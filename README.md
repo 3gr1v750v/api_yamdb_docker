@@ -6,7 +6,7 @@
 
 Версия проекта без Docker контейнера: https://github.com/EugeniGrivtsov/api_yamdb
 
-Версия проекта, с Docker-compose и настройкой Github Actions Workflow с разворачиванием не сервере Ubuntu : https://github.com/EugeniGrivtsov/yamdb_CI
+Версия проекта, с Docker-compose и настройкой Github Actions Workflow с разворачиванием не сервере Ubuntu : https://github.com/EugeniGrivtsov/api_yamdb_CI
 
 Проект YaMDb собирает отзывы пользователей на произведения. Сами произведения
 в YaMDb не хранятся, здесь нельзя посмотреть фильм или послушать музыку.

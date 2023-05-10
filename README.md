@@ -4,8 +4,8 @@
 
 Проект создан в рамках учебного курса Яндекс.Практикум.
 
-- Версия проекта без Docker контейнера: https://github.com/EugeniGrivtsov/api_yamdb
-- Версия проекта, с Docker-compose и настройкой Github Actions Workflow с установкой не сервере Ubuntu : https://github.com/EugeniGrivtsov/api_yamdb_CI
+- Версия проекта без Docker контейнера: https://github.com/3gr1v750v/api_yamdb
+- Версия проекта, с Docker-compose и настройкой Github Actions Workflow с установкой не сервере Ubuntu : https://github.com/3gr1v750v/api_yamdb_CI
 
 Проект YaMDb собирает отзывы пользователей на произведения. Сами произведения
 в YaMDb не хранятся, здесь нельзя посмотреть фильм или послушать музыку.
@@ -94,7 +94,7 @@ POST /api/v1/titles/{title_id}/reviews/{review_id}/comments/
 ### Запуск проекта:
 - Для развёртывания проекта необходимо скачать его в нужную вам директорию, например:
 
-``` git clone git@github.com:EugeniGrivtsov/api_yamdb_docker.git ```
+``` git clone git@github.com:3gr1v750v/api_yamdb_docker.git ```
 
 - В директории infra создайте файл .env, откройте его и настройте параметры переменных окружения по заданному шаблону:
 
